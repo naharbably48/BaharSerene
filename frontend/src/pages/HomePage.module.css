@@ -69,23 +69,23 @@
 }
 
 .promo {
-  background: linear-gradient(135deg, #ffd60a 0%, #ffec66 100%);
+  background: linear-gradient(135deg, #52b788 0%, #74c69d 100%);
   padding: 3rem 2rem;
   text-align: center;
   margin: 3rem 0;
   border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(255, 214, 10, 0.3);
+  box-shadow: 0 8px 24px rgba(82, 183, 136, 0.3);
 }
 
 .promo h2 {
-  color: #1b4332;
+  color: white;
   margin-bottom: 0.75rem;
   font-size: 2rem;
   font-weight: 800;
 }
 
 .promo p {
-  color: #2d6a4f;
+  color: white;
   font-size: 1.15rem;
   font-weight: 600;
 }
@@ -148,8 +148,6 @@
   padding: 4rem 1.5rem;
   margin: 3rem 0;
   border-radius: 1.5rem;
-}
-  padding: 4rem 0;
 }
 
 .categories h2 {

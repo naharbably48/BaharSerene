@@ -4,7 +4,7 @@ A professional, full-stack e-commerce platform for an online plant nursery with 
 
 ## 🌱 Project Overview
 
-BaharSerene is a beautifully designed, responsive online plant nursery platform that allows users to explore, purchase, and learn about plants. The platform offers a smooth shopping experience, real-time stock updates, personalized recommendations, and a modern, feminine aesthetic that reflects nature and serenity.
+BaharSerene is a beautifully designed, responsive online plant nursery platform that allows users to explore, purchase, and learn about plants. The platform offers a smooth shopping experience, real-time stock updates, personalized recommendations, and a modern, aesthetic that reflects nature and serenity.
 
 ## 📁 Project Structure
 
