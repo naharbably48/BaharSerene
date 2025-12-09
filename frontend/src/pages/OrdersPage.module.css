@@ -1,0 +1,145 @@
+.ordersPage {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+.ordersPage h1 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.empty p {
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+.ordersList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.orderCard {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.orderCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.orderHeader h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.date {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.status {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.status.pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status.processing {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status.shipped {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status.delivered {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status.cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.items {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.viewBtn {
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.viewBtn:hover {
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .orderHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,106 @@
+.productsPage {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+}
+
+.sidebar {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
+}
+
+.sidebar h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.filterGroup {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterGroup:last-child {
+  border-bottom: none;
+}
+
+.filterGroup h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.checkbox input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.priceInputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.priceInputs input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.main {
+  flex: 1;
+}
+
+.main h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.productGrid a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.loading,
+.noProducts {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}

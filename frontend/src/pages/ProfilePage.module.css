@@ -1,0 +1,48 @@
+.profile {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+.profile h1 {
+  margin-bottom: 2rem;
+}
+
+.wrapper {
+  max-width: 500px;
+}
+
+.form {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.formGroup input:disabled {
+  background-color: var(--light-bg);
+  cursor: not-allowed;
+}
