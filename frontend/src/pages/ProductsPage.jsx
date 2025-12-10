@@ -2,18 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import styles from './ProductsPage.module.css';
-import { productService } from '../services/index';
+import { productsData, categories } from '../data/products';
 import toast from 'react-hot-toast';
 
-const CATEGORIES = [
-  'Indoor Plants',
-  'Outdoor Plants',
-  'Flowering Plants',
-  'Seedlings',
-  'Seeds Pack',
-  'Pots & Planters',
-  'Soil, Fertilizer, Tools',
-];
+const CATEGORIES = categories.map(cat => cat.name);
 
 const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,19 +20,34 @@ const ProductsPage = () => {
   });
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const response = await productService.getAllProducts(filters);
-        setProducts(response.data.products);
-      } catch (error) {
-        toast.error('Failed to load products');
-      } finally {
-        setLoading(false);
+    try {
+      setLoading(true);
+      
+      // Filter products based on filters
+      let filtered = [...productsData];
+      
+      if (filters.category) {
+        filtered = filtered.filter(p => p.category === filters.category);
       }
-    };
-
-    fetchProducts();
+      
+      if (filters.minPrice) {
+        filtered = filtered.filter(p => p.price >= parseFloat(filters.minPrice));
+      }
+      
+      if (filters.maxPrice) {
+        filtered = filtered.filter(p => p.price <= parseFloat(filters.maxPrice));
+      }
+      
+      if (filters.difficulty) {
+        filtered = filtered.filter(p => p.careLevel.toLowerCase() === filters.difficulty.toLowerCase());
+      }
+      
+      setProducts(filtered);
+    } catch (error) {
+      toast.error('Failed to load products');
+    } finally {
+      setLoading(false);
+    }
   }, [filters]);
 
   const handleFilterChange = (key, value) => {

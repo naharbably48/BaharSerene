@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import styles from './HomePage.module.css';
-import { productService } from '../services/index';
+import { productsData, categories } from '../data/products';
 import toast from 'react-hot-toast';
 
 const HomePage = () => {
@@ -10,21 +10,14 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchFeaturedProducts = async () => {
-      try {
-        const response = await productService.getAllProducts({
-          limit: 6,
-          sortBy: 'createdAt',
-        });
-        setFeaturedProducts(response.data.products);
-      } catch (error) {
-        toast.error('Failed to load products');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchFeaturedProducts();
+    try {
+      // Use sample products data - show first 6 products
+      setFeaturedProducts(productsData.slice(0, 6));
+    } catch (error) {
+      toast.error('Failed to load products');
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   return (
