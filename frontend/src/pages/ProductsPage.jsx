@@ -16,6 +16,7 @@ const ProductsPage = () => {
     minPrice: searchParams.get('minPrice') || '',
     maxPrice: searchParams.get('maxPrice') || '',
     difficulty: searchParams.get('difficulty') || '',
+    search: searchParams.get('search') || '',
     page: parseInt(searchParams.get('page')) || 1,
   });
 
@@ -25,6 +26,16 @@ const ProductsPage = () => {
       
       // Filter products based on filters
       let filtered = [...productsData];
+      
+      // Search filter - search in name and description
+      if (filters.search) {
+        const query = filters.search.toLowerCase();
+        filtered = filtered.filter(p => 
+          p.name.toLowerCase().includes(query) || 
+          p.description.toLowerCase().includes(query) ||
+          p.category.toLowerCase().includes(query)
+        );
+      }
       
       if (filters.category) {
         filtered = filtered.filter(p => p.category === filters.category);
@@ -119,12 +130,24 @@ const ProductsPage = () => {
           {/* Products Grid */}
           <section className={styles.main}>
             <h2>Our Plants</h2>
+            
+            {/* Search box in products page */}
+            <div className={styles.searchBox}>
+              <input
+                type="text"
+                placeholder="Search by name, description, or category..."
+                value={filters.search}
+                onChange={(e) => handleFilterChange('search', e.target.value)}
+                className={styles.searchInput}
+              />
+            </div>
+            
             {loading ? (
               <div className={styles.loading}>Loading...</div>
             ) : products.length > 0 ? (
               <div className={styles.productGrid}>
                 {products.map((product) => (
-                  <Link key={product._id} to={`/products/${product._id}`}>
+                  <Link key={product.id || product._id} to={`/products/${product.id || product._id}`}>
                     <ProductCard product={product} />
                   </Link>
                 ))}

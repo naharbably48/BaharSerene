@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaHeart, FaUser, FaSearch } from 'react-icons/fa';
+import { FaShoppingCart, FaHeart, FaUser } from 'react-icons/fa';
 import styles from './Header.module.css';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
@@ -15,17 +15,6 @@ const Header = () => {
         <Link to="/" className={styles.logo}>
           🌱 BaharSerene
         </Link>
-
-        <div className={styles.search}>
-          <input
-            type="text"
-            placeholder="Search plants..."
-            className={styles.searchInput}
-          />
-          <button className={styles.searchBtn}>
-            <FaSearch />
-          </button>
-        </div>
 
         <nav className={styles.nav}>
           <Link to="/products" className={styles.navLink}>

@@ -50,7 +50,7 @@ const HomePage = () => {
           ) : (
             <div className={styles.productGrid}>
               {featuredProducts.map((product) => (
-                <Link key={product._id} to={`/products/${product._id}`}>
+                <Link key={product.id || product._id} to={`/products/${product.id || product._id}`}>
                   <ProductCard product={product} />
                 </Link>
               ))}
