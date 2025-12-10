@@ -1,25 +1,47 @@
 .footer {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
   color: white;
-  margin-top: 4rem;
+  margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(82, 183, 136, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 3rem 0 2rem;
+  gap: 3rem;
+  padding: 4rem 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .section h3 {
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  color: #ffd60a;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .section p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .section ul {
@@ -27,35 +49,84 @@
 }
 
 .section ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  transition: all 0.3s ease;
 }
 
 .section a {
   color: rgba(255, 255, 255, 0.8);
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.section a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffd60a;
+  transition: width 0.3s ease;
 }
 
 .section a:hover {
-  color: var(--accent-color);
+  color: #ffd60a;
+}
+
+.section a:hover::after {
+  width: 100%;
 }
 
 .social {
   display: flex;
   gap: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 214, 10, 0.1);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  color: #ffd60a;
+  transition: all 0.3s ease;
+}
+
+.social a:hover {
+  background: #ffd60a;
+  color: #1b4332;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(255, 214, 10, 0.2);
 }
 
 .bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.bottom p {
+  margin: 0.3rem 0;
 }
 
 @media (max-width: 768px) {
   .content {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+
+  .section h3 {
+    font-size: 1.1rem;
   }
 }
