@@ -61,7 +61,7 @@ const CheckoutPage = () => {
           city: formData.city,
           state: formData.state,
           postalCode: formData.postalCode,
-          country: 'India',
+          country: 'Bangladesh',
         },
         paymentMethod: formData.paymentMethod,
         ...(formData.couponCode && { couponCode: formData.couponCode }),
@@ -206,23 +206,23 @@ const CheckoutPage = () => {
               {cart.map((item) => (
                 <div key={item.productId} className={styles.item}>
                   <span>{item.name} x {item.quantity}</span>
-                  <span>₹{(item.price * item.quantity).toFixed(2)}</span>
+                  <span>৳{(item.price * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
             </div>
             <hr />
             <div className={styles.row}>
               <span>Subtotal</span>
-              <span>₹{cartTotal.toFixed(2)}</span>
+              <span>৳{cartTotal.toFixed(2)}</span>
             </div>
             <div className={styles.row}>
               <span>Delivery</span>
-              <span>₹{deliveryCharge}</span>
+              <span>৳{deliveryCharge}</span>
             </div>
             <hr />
             <div className={styles.total}>
               <span>Total</span>
-              <span>₹{total.toFixed(2)}</span>
+              <span>৳{total.toFixed(2)}</span>
             </div>
           </aside>
         </div>

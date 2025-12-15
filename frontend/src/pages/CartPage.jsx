@@ -46,7 +46,7 @@ const CartPage = () => {
                       <img src={item.image} alt={item.name} />
                       <span>{item.name}</span>
                     </td>
-                    <td>₹{item.price}</td>
+                    <td>৳{item.price}</td>
                     <td>
                       <div className={styles.quantity}>
                         <button onClick={() => updateQuantity(item.productId, item.quantity - 1)}>
@@ -58,7 +58,7 @@ const CartPage = () => {
                         </button>
                       </div>
                     </td>
-                    <td className={styles.subtotal}>₹{(item.price * item.quantity).toFixed(2)}</td>
+                    <td className={styles.subtotal}>৳{(item.price * item.quantity).toFixed(2)}</td>
                     <td>
                       <button
                         className={styles.deleteBtn}
@@ -78,7 +78,7 @@ const CartPage = () => {
             <h3>Order Summary</h3>
             <div className={styles.summaryRow}>
               <span>Subtotal</span>
-              <span>₹{cartTotal.toFixed(2)}</span>
+              <span>৳{cartTotal.toFixed(2)}</span>
             </div>
             <div className={styles.coupon}>
               <input type="text" placeholder="Coupon Code" />
@@ -86,12 +86,12 @@ const CartPage = () => {
             </div>
             <div className={styles.summaryRow}>
               <span>Delivery Charge</span>
-              <span>₹50</span>
+              <span>৳50</span>
             </div>
             <hr />
             <div className={styles.total}>
               <span>Total</span>
-              <span>₹{(cartTotal + 50).toFixed(2)}</span>
+              <span>৳{(cartTotal + 50).toFixed(2)}</span>
             </div>
             <Link to="/checkout" className="btn btn-primary" style={{ width: '100%', marginTop: '1.5rem' }}>
               Proceed to Checkout
